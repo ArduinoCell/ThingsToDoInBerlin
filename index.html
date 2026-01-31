@@ -7,56 +7,6 @@
     <title>Menu</title>
     <style>
         /* GLOBAL STYLES */
-        body {
-            background: #333;
-            padding-top: 5em;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* DEMO-SPECIFIC STYLES */
-        .typewriter h1 {
-            color: #fff;
-            font-family: monospace;
-            overflow: hidden;
-            /* Ensures the content is not revealed until the animation */
-            border-right: .15em solid orange;
-            /* The typwriter cursor */
-            white-space: nowrap;
-            /* Keeps the content on a single line */
-            margin: 0 auto;
-            /* Gives that scrolling effect as the typing happens */
-            letter-spacing: .15em;
-            /* Adjust as needed */
-            animation:
-                typing 3.5s steps(30, end),
-                blink-caret .5s step-end infinite;
-        }
-
-        /* The typing effect */
-        @keyframes typing {
-            from {
-                width: 0
-            }
-
-            to {
-                width: 100%
-            }
-        }
-
-        /* The typewriter cursor effect */
-        @keyframes blink-caret {
-
-            from,
-            to {
-                border-color: transparent
-            }
-
-            50% {
-                border-color: orange
-            }
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -68,6 +18,7 @@
             background-color: #f5f5f5;
         }
 
+        /* NAVIGATION STYLES */
         nav {
             background-color: #333;
             padding: 1rem 0;
@@ -75,7 +26,7 @@
 
         nav ul {
             list-style: none;
-            display: flex;
+            display: flex; /* horizontal layout */
             justify-content: center;
             gap: 2rem;
         }
@@ -91,32 +42,91 @@
             color: #4CAF50;
         }
 
+        /* MAIN CONTENT */
         main {
             padding: 2rem;
             text-align: center;
+        }
+
+        /* TYPEWRITER EFFECT */
+        .typewriter h1 {
+            color: #000;
+            font-family: monospace;
+            overflow: hidden;
+            border-right: 0.15em solid orange; /* cursor */
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.15em;
+            animation:
+                typing 3.5s steps(30, end),
+                blink-caret 0.5s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+            from,
+            to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: orange;
+            }
+        }
+
+        /* MAP STYLES */
+        iframe {
+            margin-top: 1rem;
+            border: 0;
+            width: 400px;
+            height: 400px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 500px) {
+            iframe {
+                width: 100%;
+                height: 300px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- NAVIGATION -->
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
+            <li><a href="#memorial">Berlin Wall Memorial</a></li>
         </ul>
     </nav>
 
+    <!-- MAIN CONTENT -->
     <main>
-        <div class = "typewriter">
-            <h1>things to do in berlin</h1>            
+        <!-- TYPEWRITER TITLE -->
+        <div class="typewriter">
+            <h1>Things to do in Berlin</h1>
         </div>
 
-        <div>
+        <!-- BERLIN WALL MEMORIAL MAP -->
+        <section id="memorial">
             <h2>Berlin Wall Memorial</h2>
-            <iframe width="400" height="400" style="border:0;"
+            <iframe
                 src="https://maps.google.com/maps?q=Memorial%20of%20the%20Berlin%20Wall&t=m&z=14&ie=UTF8&iwloc=&output=embed"
                 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        </section>
     </main>
 </body>
 
-</html>>
+</html>
